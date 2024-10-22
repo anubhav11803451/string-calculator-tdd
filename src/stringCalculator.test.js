@@ -22,4 +22,9 @@ describe('String Calculator', () => {
     test('should return the sum of multiple numbers', () => {
         expect(add("1,2,3,4,5")).toBe(15);
     });
+
+    //Test-5
+    test('should handle new lines between numbers', () => {
+        expect(add("1\n2\n3\n4\n5,6")).toBe(21);
+    });
 });
