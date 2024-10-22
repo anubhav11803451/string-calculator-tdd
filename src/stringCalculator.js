@@ -20,8 +20,8 @@ function add(numbers) {
     if (negatives.length > 0) {
         throw new Error("negative numbers not allowed: " + negatives.join(","));
     }
-
-    return nums.reduce((sum, num) => sum + num, 0);
+    //Test-9: Ignore numbers bigger than 1000
+    return nums.filter(n => n <= 1000).reduce((sum, num) => sum + num, 0);
 }
 
 export { add };

@@ -42,4 +42,13 @@ describe('String Calculator', () => {
     test('should throw an exception for multiple negative numbers', () => {
         expect(() => add("2,-4,3,-5")).toThrow("negative numbers not allowed: -4,-5");
     });
+
+    //From here on extra points for full version of TDD Kata 1 [https://osherove.com/tdd-kata-1]
+
+    //Test-9: Ignore numbers bigger than 1000
+    test('should ignore numbers bigger than 1000', () => {
+        expect(add("2,1001")).toBe(2);
+        // added a filter in the final calculation to ignore numbers > 1000
+        // return nums.filter(n => n <= 1000).reduce((sum, num) => sum + num, 0);
+    });
 });
