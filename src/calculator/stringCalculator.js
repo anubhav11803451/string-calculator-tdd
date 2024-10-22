@@ -1,3 +1,5 @@
+const { escapeRegExp, throwNegativeNumbersError } = require('../utils')
+
 function add(numbers) {
     //Test-1
     if (numbers === "") return 0;
@@ -25,7 +27,7 @@ function add(numbers) {
     const negatives = nums.filter(n => n < 0);
 
     if (negatives.length > 0) {
-        throw new Error("negative numbers not allowed: " + negatives.join(","));
+        throwNegativeNumbersError(negatives);
     }
     //Test-9: Ignore numbers bigger than 1000
     return nums.filter(n => n <= 1000).reduce((sum, num) => sum + num, 0);
@@ -33,12 +35,3 @@ function add(numbers) {
 
 export { add };
 
-/**
- * Escape special regex characters in a string to be used as a regex delimiter.
- * @description It replaces characters like `.`, `*`, `+`, etc. with their escaped versions, e.g., `\.`.
- * @param {string} string
- * @returns {string}
- */
-function escapeRegExp(string) {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
