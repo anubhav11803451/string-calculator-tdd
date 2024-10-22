@@ -12,7 +12,15 @@ function add(numbers) {
         delimiter = numbers.substring(2, delimiterEnd);
         numbers = numbers.substring(delimiterEnd + 1);
     }
+
     const nums = numbers.split(delimiter).map(Number) // return array of numbers by splitting based on delimiter and convert string to number;
+    //Test-7 & Test-8
+    const negatives = nums.filter(n => n < 0);
+
+    if (negatives.length > 0) {
+        throw new Error("negative numbers not allowed: " + negatives.join(","));
+    }
+
     return nums.reduce((sum, num) => sum + num, 0);
 }
 
