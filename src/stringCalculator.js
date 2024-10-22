@@ -3,7 +3,10 @@ function add(numbers) {
     if (numbers === "") return 0;
 
     //Test-2
-    return parseInt(numbers);
+    // return parseInt(numbers);
+
+    //Test-3 & Test-4
+    return numbers.split(',').reduce((sum, num) => sum + parseInt(num), 0);
 }
 
 export { add };
