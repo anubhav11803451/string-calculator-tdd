@@ -51,4 +51,27 @@ describe('String Calculator', () => {
         // added a filter in the final calculation to ignore numbers > 1000
         // return nums.filter(n => n <= 1000).reduce((sum, num) => sum + num, 0);
     });
+
+    //Test-10: Handle delimiters of any length
+    test('should handle delimiters of any length', () => {
+        expect(add("//[***]\n1***2***3")).toBe(6);
+        // modified the delimiter parsing to handle brackets
+        // if (delimiterSection.startsWith("[") && delimiterSection.endsWith("]")) {
+        //   delimiter = delimiterSection.slice(1, -1).split("][").map(escapeRegExp).join("|");
+        // }
+    });
+
+    //Test-11: Handle multiple delimiters
+    test('should handle multiple delimiters', () => {
+        expect(add("//[*][%]\n1*2%3")).toBe(6);
+        // delimiter parsing now splits multiple delimiters
+        // delimiter = delimiterSection.slice(1, -1).split("][").map(escapeRegExp).join("|");
+    });
+
+    // Test-12: Handle multiple delimiters with length longer than one char
+    test('should handle multiple delimiters with length longer than one char', () => {
+        expect(add("//[**][%%]\n1**2%%3")).toBe(6);
+        // same logic handles both single and multi-character delimiters
+        // We use escapeRegExp to handle special regex characters in delimiters
+    });
 });
