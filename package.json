@@ -4,12 +4,16 @@
   "description": "This project is a TDD Kata- an exercise in coding, refactoring and test-first, that one should apply daily for at least 15 minutes ",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "keywords": [],
   "author": "Anubhav Gupta",
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-env": "^7.14.7",
+    "babel-jest": "^29.7.0",
     "jest": "^29.7.0"
   }
 }
